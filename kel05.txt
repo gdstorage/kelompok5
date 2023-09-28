@@ -2,10 +2,12 @@ nama: gadis
 HADIR
 
 nama: asep
+HADIR
+jangan panggil aku asep paman
 
-<<<<<<< HEAD
+
 nama:
 Hadir
-=======
+
 nama: pakri
->>>>>>> d5ffa11d1a1551a352ff53aa7e95d3b44f6ba679
+
