@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>P2_007_Latihan</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="header1">P2_007_Latihan</div>
+
+    <form onsubmit="return validate()">
+        <table>
+            <tbody>
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td>
+                        <input id="nama" type="text" />
+                    </td>
+                    <td id="error_nama" style="color: red"></td>
+                </tr>
+                <tr>
+                    <td>Mata Kuliah</td>
+                    <td>:</td>
+                    <td>
+                        <select id="matakuliah">
+                            <option value="">Pilih Mata Kuliah</option>
+                            <option value="Matematika">Matematika</option>
+                            <option value="Fisika">Fisika</option>
+                            <option value="Kimia">Kimia</option>
+                        </select>
+                    </td>
+                    <td id="error_matakuliah" style="color: red"></td>
+                </tr>
+                <tr>
+                    <td>Nilai</td>
+                    <td>:</td>
+                    <td>
+                        <input id="nilai" type="number" />
+                    </td>
+                    <td id="error_nilai" style="color: red"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" onclick="resetForm(); alert('Your answer is cancelled');">
+                            Batal
+                        </button>
+                    </td>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="kirim" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    
+    <script>
+        function resetForm() {
+            // Menghapus pesan kesalahan
+            document.getElementById("error_nama").innerText = "";
+            document.getElementById("error_matakuliah").innerText = "";
+            document.getElementById("error_nilai").innerText = "";
+
+            // Mereset nilai input
+            document.getElementById("nama").value = "";
+            document.getElementById("matakuliah").value = "";
+            document.getElementById("nilai").value = "";
+        }
+
+        function validate() {
+            // Tambahkan kode validasi di sini
+            let nama = document.getElementById("nama").value;
+            let matakuliah = document.getElementById("matakuliah").value;
+            let nilai = document.getElementById("nilai").value;
+            let validate = false;
+
+            // Validasi Nama
+            if (nama.trim() === "") {
+                document.getElementById("error_nama").innerText = "Harap isi field Nama!"; // Tampilkan pesan kesalahan
+                validate = false;
+            } else {
+                let Pattern = /^[a-zA-Z\s]*$/;
+                if (!Pattern.test(nama.trim())) {
+                    document.getElementById("error_nama").innerText = "Harap harus berisi huruf atau spasi!"; // Tampilkan pesan kesalahan
+                    validate = false;
+                } else if (nama.length > 20) {
+                    document.getElementById("error_nama").innerText = "Nama maksimal 20 karakter!";
+                    return false;
+                } else {
+                    document.getElementById("error_nama").innerText = ""; // Hapus pesan kesalahan jika valid
+                }
+            }
+
+            // Validasi matakuliah
+            if (matakuliah === "") {
+                document.getElementById("error_matakuliah").innerText = "Harap isi field matakuliah!"; // Tampilkan pesan kesalahan
+                validate = false;
+            } else {
+                document.getElementById("error_matakuliah").innerText = ""; // Hapus pesan kesalahan jika valid
+            }
+
+            // Validasi nilai
+            if (nilai === "") {
+                document.getElementById("error_nilai").innerText = "Harap isi field nilai!"; // Tampilkan pesan kesalahan
+                validate = false;
+            } else if (isNaN(nilai) || nilai < 0 || nilai > 100) {
+                document.getElementById("error_nilai").innerText = "Nilai harus antara 0 dan 100!";
+                return false; // Kembalikan false untuk mencegah pengiriman formulir
+            } else {
+                document.getElementById("error_nilai").innerText = ""; // Hapus pesan kesalahan jika valid
+            }
+            return validate;
+        }
+    </script>
+</body>
+
+</html>
