@@ -4,3 +4,4 @@ HADIR
 nama:
 
 nama:
+Hadir
