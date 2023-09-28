@@ -3,11 +3,7 @@ HADIR
 
 nama: asep
 HADIR
-jangan panggil aku asep paman
-
-
-nama:
-Hadir
 
 nama: pakri
+HADIR
 
